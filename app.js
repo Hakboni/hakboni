@@ -203,7 +203,7 @@ const stories = [
     section: "徵選",
     subtopic: "Auditions",
     priority: 6,
-    featured: true,
+    featured: false,
     title: "樂天女孩傳升級韓籍6本柱；金世星談徵選內幕：不想靠身分搶機會",
     shortTitle: "金世星談樂天女孩徵選",
     summary:
@@ -271,7 +271,7 @@ const stories = [
     section: "WBC",
     subtopic: "International",
     priority: 8,
-    featured: false,
+    featured: true,
     title: "李珠珢缺席WBC！韓國啦啦隊名單出爐 車榮玹、朴淡備沖繩合體",
     shortTitle: "韓國啦啦隊WBC名單出爐",
     summary:
