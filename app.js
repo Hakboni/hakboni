@@ -1,5 +1,45 @@
 const stories = [
   {
+    id: "stoo-shin-se-hee-world-cup-cheering-2026-06-12",
+    status: "published",
+    section: "韓國",
+    subtopic: "World Cup",
+    priority: 0,
+    featured: false,
+    title: "世界盃街頭應援登場，啦啦隊員申世熙在光化門廣場帶動氣氛",
+    shortTitle: "申世熙光化門廣場應援",
+    summary:
+      "Sports Today刊出照片新聞，記錄啦啦隊員申世熙6月12日在首爾光化門廣場，於2026北中美世界盃小組賽韓國對捷克的街頭應援活動中登台帶動氣氛。",
+    url: "http://www.stoo.com/article.php?aid=107128963930",
+    source: {
+      name: "Sports Today",
+      region: "Korea",
+      language: "ko",
+      reliability: "approved"
+    },
+    dates: {
+      published: "2026-06-12",
+      updated: "2026-06-12",
+      checked: "2026-06-12"
+    },
+    verification: {
+      level: "source-confirmed",
+      flags: ["photo-report", "korean-source", "public-cheering"],
+      notes: "Sagan verified STOO title, og:title, og:description, publication time, and og:image match the Shin Se-hee cheering photo article."
+    },
+    sourceTranslation: {
+      label: "韓文來源翻譯",
+      originalTitle: "[ST포토] 치어리더 신세희, 흥 돋구는 응원",
+      translatedExcerpt:
+        "【Sports Today】照片新聞報導，啦啦隊員申世熙在首爾光化門廣場的世界盃街頭應援活動中登台表演，為韓國對捷克的小組賽現場帶動氣氛。"
+    },
+    display: {
+      image: "https://www.stoo.com/upimages/gisaimg/202606/12_1071289_63930.jpg",
+      imageAlt: "Sports Today article image for cheerleader Shin Se-hee cheering at Gwanghwamun Square",
+      imagePosition: "center 18%"
+    }
+  },
+  {
     id: "basketkorea-park-dam-bi-hyundai-mobis-2026-06-08",
     status: "published",
     section: "韓國",
@@ -46,7 +86,7 @@ const stories = [
     section: "韓國",
     subtopic: "KBO",
     priority: 2,
-    featured: true,
+    featured: false,
     title: "台灣首位KBO啦啦隊員張珞娜亮相，MK Sports直擊LG主場應援",
     shortTitle: "張珞娜亮相LG主場",
     summary:
@@ -87,7 +127,7 @@ const stories = [
     section: "韓國",
     subtopic: "CPBL",
     priority: 3,
-    featured: false,
+    featured: true,
     title: "李珠珢2026年續留Fubon Angels，南珉貞、朴星垠等韓籍成員同列陣容",
     shortTitle: "李珠珢續留富邦天使",
     summary:
@@ -186,7 +226,8 @@ const stories = [
     },
     display: {
       image: "https://media.nownews.com/nn_media/thumbnail/2026/02/1771913567186-c18886cd5a2540259f635f640256c5cf-792x445.webp?unShow=false",
-      imageAlt: "NOWnews article image for Ko Ga-bin at Rakuten stadium"
+      imageAlt: "NOWnews article image for Ko Ga-bin at Rakuten stadium",
+      imagePosition: "center 18%"
     }
   },
   {
@@ -219,7 +260,8 @@ const stories = [
     },
     display: {
       image: "https://media.nownews.com/nn_media/thumbnail/2026/02/1771909599987-dbbc25f733714e2fbee10c40aa2bb26f-453x254.webp?unShow=false",
-      imageAlt: "NOWnews article image for Kim Se-sung Rakuten Girls audition report"
+      imageAlt: "NOWnews article image for Kim Se-sung Rakuten Girls audition report",
+      imagePosition: "center 18%"
     }
   },
   {
@@ -286,7 +328,8 @@ const stories = [
     },
     display: {
       image: "https://media.nownews.com/nn_media/thumbnail/2025/11/1763316884083-76824383607640a38fff43266f21b418-1200x675.webp?unShow=false",
-      imageAlt: "NOWnews article image for Korean cheerleader WBC roster report"
+      imageAlt: "NOWnews article image for Korean cheerleader WBC roster report",
+      imagePosition: "center 18%"
     }
   },
   {
@@ -541,6 +584,21 @@ const imageStyle = (story) => story.display.imagePosition
   ? ` style="object-position: ${story.display.imagePosition}"`
   : "";
 
+const renderTodayDate = () => {
+  const dateNode = document.querySelector("#today-date");
+  if (!dateNode) {
+    return;
+  }
+
+  dateNode.textContent = new Intl.DateTimeFormat("zh-TW", {
+    timeZone: "Asia/Taipei",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    weekday: "long"
+  }).format(new Date());
+};
+
 const renderLeadStory = (story) => {
   if (!story) {
     return;
@@ -650,6 +708,7 @@ archiveSearch.addEventListener("input", (event) => {
 });
 
 renderArchive();
+renderTodayDate();
 renderLeadByIndex(leadIndex);
 setInterval(() => renderLeadByIndex(leadIndex + 1), 15 * 60 * 1000);
 

@@ -211,6 +211,7 @@ main,
   font-size: clamp(34px, 5vw, 58px);
   line-height: 0.95;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .lead-story p {
@@ -943,7 +944,9 @@ main,
   }
 
   .lead-story h1 {
-    font-size: 34px;
+    font-size: 31px;
+    line-height: 1.04;
+    word-break: break-word;
   }
 
   .lead-story p {
