@@ -76,7 +76,8 @@ const stories = [
     },
     display: {
       image: "https://wimg.mk.co.kr/news/cms/202604/14/news-p.v1.20260414.a7417395a83b4292925530ba645558da_P1.jpg",
-      imageAlt: "MK Sports article image for Jang Rona as the first Taiwanese KBO cheerleader"
+      imageAlt: "MK Sports article image for Jang Rona as the first Taiwanese KBO cheerleader",
+      imagePosition: "center 14%"
     }
   },
   {
@@ -509,6 +510,10 @@ const searchText = (story) => [
   .join(" ")
   .toLocaleLowerCase();
 
+const imageStyle = (story) => story.display.imagePosition
+  ? ` style="object-position: ${story.display.imagePosition}"`
+  : "";
+
 const renderLeadStory = (story) => {
   if (!story) {
     return;
@@ -520,6 +525,7 @@ const renderLeadStory = (story) => {
   leadMedia.href = story.url;
   leadImage.src = story.display.image;
   leadImage.alt = story.display.imageAlt;
+  leadImage.style.objectPosition = story.display.imagePosition || "";
   leadImage.onerror = () => {
     leadImage.onerror = null;
     leadImage.src = "assets/lead-stadium-cheer.png";
@@ -546,7 +552,7 @@ const renderGrid = (activeLeadId) => {
     .map((story) => `
       <article class="story-card${story.id === activeLeadId ? " featured" : ""}">
       <a class="thumb" href="${story.url}" target="_blank" rel="noopener noreferrer" data-section="${story.section}" aria-label="${story.display.imageAlt}">
-        <img src="${story.display.image}" alt="${story.display.imageAlt}">
+        <img src="${story.display.image}" alt="${story.display.imageAlt}"${imageStyle(story)}>
       </a>
         ${meta(story)}
         <h3><a href="${story.url}" target="_blank" rel="noopener noreferrer">${story.title}</a></h3>
@@ -572,7 +578,7 @@ const renderArchive = (query = "") => {
       .map((story) => `
         <article class="archive-item">
           <a class="archive-thumb" href="${story.url}" target="_blank" rel="noopener noreferrer" aria-label="${story.display.imageAlt}">
-            <img src="${story.display.image}" alt="${story.display.imageAlt}" loading="lazy">
+            <img src="${story.display.image}" alt="${story.display.imageAlt}" loading="lazy"${imageStyle(story)}>
           </a>
           <div class="archive-copy">
             ${meta(story)}
