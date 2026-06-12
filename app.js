@@ -86,7 +86,7 @@ const stories = [
     section: "韓國",
     subtopic: "CPBL",
     priority: 3,
-    featured: true,
+    featured: false,
     title: "李珠珢2026年續留Fubon Angels，南珉貞、朴星垠等韓籍成員同列陣容",
     shortTitle: "李珠珢續留富邦天使",
     summary:
@@ -126,7 +126,7 @@ const stories = [
     section: "樂天女孩",
     subtopic: "CPBL",
     priority: 4,
-    featured: false,
+    featured: true,
     title: "樂天女孩拼了！傳升級韓籍啦啦隊6本柱 規模稱霸聯盟劍指天花板",
     shortTitle: "樂天女孩傳升級韓籍6本柱",
     summary:
