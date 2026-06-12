@@ -1,7 +1,7 @@
 const stories = [
   {
     id: "stoo-shin-se-hee-world-cup-cheering-2026-06-12",
-    status: "published",
+    status: "archived",
     section: "韓國",
     subtopic: "World Cup",
     priority: 0,
@@ -30,6 +30,7 @@ const stories = [
     sourceTranslation: {
       label: "韓文來源翻譯",
       originalTitle: "[ST포토] 치어리더 신세희, 흥 돋구는 응원",
+      page: "translations/stoo-shin-se-hee-world-cup-cheering-2026-06-12.html",
       translatedExcerpt:
         "【Sports Today】照片新聞報導，啦啦隊員申世熙在首爾光化門廣場的世界盃街頭應援活動中登台表演，為韓國對捷克的小組賽現場帶動氣氛。"
     },
@@ -127,7 +128,7 @@ const stories = [
     section: "韓國",
     subtopic: "CPBL",
     priority: 3,
-    featured: true,
+    featured: false,
     title: "李珠珢2026年續留Fubon Angels，南珉貞、朴星垠等韓籍成員同列陣容",
     shortTitle: "李珠珢續留富邦天使",
     summary:
@@ -202,7 +203,7 @@ const stories = [
     section: "樂天女孩",
     subtopic: "CPBL",
     priority: 5,
-    featured: false,
+    featured: true,
     title: "快訊／Rakuten Girls真的要組6本柱？高佳彬現身球場：樂天我來了",
     shortTitle: "高佳彬現身桃園球場",
     summary:
@@ -223,6 +224,13 @@ const stories = [
       level: "developing",
       flags: ["reported"],
       notes: "Reported sighting; final roster status should be monitored."
+    },
+    contextFeature: {
+      label: "背景故事",
+      title: "高佳彬深度故事：從斗山到KIA，再到樂天女孩",
+      page: "features/ko-ga-bin-rakuten-history.html",
+      excerpt:
+        "整理Xports News與StarNews的KIA照片新聞、斗山早期足跡，以及NOWnews確認的台灣發展線索。"
     },
     display: {
       image: "https://media.nownews.com/nn_media/thumbnail/2026/02/1771913567186-c18886cd5a2540259f635f640256c5cf-792x445.webp?unShow=false",
@@ -361,8 +369,9 @@ const stories = [
       notes: "Entertainment list coverage from approved Taiwan source."
     },
     display: {
-      image: "https://image.taisounds.com/newsimages/img/2025/1229/e51d0d4bbbc24d8e818204c2dacfaddc.jpg",
-      imageAlt: "TaiSounds article image for TC Candler and Lee Ju-eun ranking report"
+      image: "https://image.taisounds.com/newsimages/img/2025/1229/20251229100639.jpg",
+      imageAlt: "TaiSounds article image of Lee Ju-eun ranked No. 97 in TC Candler 2025 list",
+      imagePosition: "center 18%"
     }
   },
   {
@@ -555,6 +564,21 @@ const sourceTranslation = (story) => {
   `;
 };
 
+const contextFeature = (story) => {
+  if (!story.contextFeature) {
+    return "";
+  }
+
+  return `
+    <div class="source-translation context-feature">
+      <span>${story.contextFeature.label}</span>
+      <strong>${story.contextFeature.title}</strong>
+      <p>${story.contextFeature.excerpt}</p>
+      <a class="translation-link" href="${story.contextFeature.page}">閱讀背景故事</a>
+    </div>
+  `;
+};
+
 const meta = (story) => `
   <div class="story-meta">
     <span class="section-label">${story.section}</span>
@@ -574,7 +598,9 @@ const searchText = (story) => [
   story.source.language,
   story.verification?.flags?.join(" "),
   story.sourceTranslation?.originalTitle,
-  story.sourceTranslation?.translatedExcerpt
+  story.sourceTranslation?.translatedExcerpt,
+  story.contextFeature?.title,
+  story.contextFeature?.excerpt
 ]
   .filter(Boolean)
   .join(" ")
@@ -630,6 +656,7 @@ const renderLeadStory = (story) => {
     leadCopy.appendChild(leadTranslation);
   }
   leadTranslation.innerHTML = sourceTranslation(story);
+  leadTranslation.insertAdjacentHTML("beforeend", contextFeature(story));
 };
 
 const renderGrid = (activeLeadId) => {
@@ -643,6 +670,7 @@ const renderGrid = (activeLeadId) => {
         <h3><a href="${story.url}" target="_blank" rel="noopener noreferrer">${story.title}</a></h3>
         <p>${story.summary}</p>
         ${sourceTranslation(story)}
+        ${contextFeature(story)}
       </article>
     `)
     .join("");
@@ -670,6 +698,7 @@ const renderArchive = (query = "") => {
             <h3><a href="${story.url}" target="_blank" rel="noopener noreferrer">${story.title}</a></h3>
             <p>${story.summary}</p>
             ${sourceTranslation(story)}
+            ${contextFeature(story)}
           </div>
         </article>
       `)
