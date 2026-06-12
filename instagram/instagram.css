@@ -1,0 +1,379 @@
+:root {
+  --bg: #ecebe7;
+  --paper: #fffdfa;
+  --ink: #111;
+  --muted: #64615d;
+  --red: #c80017;
+  --blue: #174f79;
+  --line: #d8d4ca;
+  --cream: #f7f0df;
+  --shadow: 0 24px 70px rgba(17, 17, 17, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, "Noto Sans TC", sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.ig-board {
+  width: min(1200px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 30px 0 56px;
+}
+
+.ig-intro {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 26px;
+  padding-bottom: 16px;
+  border-bottom: 4px solid var(--ink);
+}
+
+.eyebrow,
+.slide-count,
+.image-stage figcaption,
+.ig-slide footer,
+.source-list span {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.ig-intro h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 6vw, 78px);
+  line-height: 0.92;
+}
+
+.ig-intro > p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.ig-carousel {
+  display: grid;
+  gap: 32px;
+}
+
+.ig-slide {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  width: min(100%, 540px);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.slide-chrome {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 22px;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.brand-lockup span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--red);
+  color: #fff;
+  font-size: 24px;
+}
+
+.slide-count {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.cover-slide {
+  align-content: space-between;
+  background: #080808;
+  color: #fff;
+}
+
+.cover-slide::after,
+.dark-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.84)),
+    linear-gradient(90deg, rgba(200, 0, 23, 0.55), transparent 56%);
+}
+
+.cover-bg {
+  position: absolute;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.cover-bg-a {
+  inset: 0 auto 0 0;
+  width: 67%;
+  height: 100%;
+}
+
+.cover-bg-b {
+  right: 0;
+  bottom: 0;
+  width: 45%;
+  height: 54%;
+  border-left: 4px solid rgba(255, 255, 255, 0.76);
+  border-top: 4px solid rgba(255, 255, 255, 0.76);
+}
+
+.cover-headline {
+  position: relative;
+  z-index: 4;
+  padding: 0 28px 10px;
+}
+
+.cover-headline p {
+  margin: 0 0 9px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.cover-headline h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(58px, 14vw, 92px);
+  line-height: 0.86;
+  letter-spacing: 0;
+}
+
+.source-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.source-row span {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 900;
+  padding: 7px 8px;
+}
+
+.feature-slide {
+  grid-template-rows: auto 54% auto auto;
+}
+
+.image-stage {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.image-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portrait-stage img {
+  object-position: center top;
+}
+
+.image-stage figcaption {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 900;
+  padding: 7px 9px;
+}
+
+.full-bleed {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.dark-slide {
+  color: #fff;
+  background: #080808;
+}
+
+.dark-slide .slide-count {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.overlay-copy {
+  position: relative;
+  z-index: 3;
+  align-self: end;
+  margin-top: auto;
+  padding-top: 45%;
+}
+
+.news-copy {
+  padding: 20px 24px 8px;
+}
+
+.original-title {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.dark-slide .original-title {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.news-copy h2,
+.caption-copy h2 {
+  margin: 0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 8vw, 58px);
+  line-height: 0.94;
+  letter-spacing: 0;
+}
+
+.news-copy p:last-child,
+.caption-copy p {
+  margin: 0;
+  color: #2c2925;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.dark-slide .news-copy p:last-child {
+  color: #fff;
+}
+
+.ig-slide footer {
+  position: relative;
+  z-index: 4;
+  padding: 16px 24px 22px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.cover-slide footer,
+.dark-slide footer {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.caption-slide {
+  align-content: space-between;
+  padding-bottom: 24px;
+  background:
+    linear-gradient(180deg, transparent 0 56%, rgba(23, 79, 121, 0.09)),
+    var(--cream);
+}
+
+.caption-copy {
+  padding: 0 30px;
+}
+
+.caption-copy h2 {
+  font-size: clamp(54px, 13vw, 86px);
+}
+
+.caption-copy p {
+  color: var(--ink);
+  font-size: 20px;
+}
+
+.hashtags {
+  margin-top: 26px;
+  color: var(--blue);
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.source-list {
+  display: grid;
+  gap: 6px;
+  margin-top: 30px;
+  border-top: 2px solid var(--ink);
+  padding-top: 14px;
+}
+
+.source-list span {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.source-list strong {
+  font-size: 17px;
+}
+
+@media (min-width: 900px) {
+  .ig-carousel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .ig-intro {
+    display: grid;
+    align-items: start;
+  }
+
+  .ig-slide {
+    width: 100%;
+  }
+
+  .news-copy h2,
+  .caption-copy h2 {
+    font-size: 42px;
+  }
+}
