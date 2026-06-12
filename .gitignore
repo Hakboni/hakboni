@@ -4,3 +4,5 @@ dist/
 .env
 .env.*
 !.env.example
+newsroom-candidates.json
+newsroom-report.md

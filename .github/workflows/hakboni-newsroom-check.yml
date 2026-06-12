@@ -1,0 +1,56 @@
+name: Hakboni Newsroom Check
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  scan-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run newsroom source scan
+        run: node .github/scripts/hakboni-news-check.mjs
+
+      - name: Add report to job summary
+        run: cat newsroom-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open issue when candidates are found
+        if: ${{ hashFiles('newsroom-candidates.json') != '' }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const candidates = JSON.parse(fs.readFileSync("newsroom-candidates.json", "utf8"));
+            if (!candidates.length) {
+              core.info("No candidates found; not opening an issue.");
+              return;
+            }
+
+            const report = fs.readFileSync("newsroom-report.md", "utf8");
+            const now = new Date();
+            const taipei = new Intl.DateTimeFormat("en-CA", {
+              timeZone: "Asia/Taipei",
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false
+            }).format(now);
+
+            const title = `Hakboni newsroom candidates — ${taipei} Taipei`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body: report,
+              labels: ["newsroom-check", "needs-editor-review"]
+            });
