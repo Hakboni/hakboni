@@ -1,46 +1,5 @@
 const stories = [
   {
-    id: "stoo-shin-se-hee-world-cup-cheering-2026-06-12",
-    status: "archived",
-    section: "韓國",
-    subtopic: "World Cup",
-    priority: 0,
-    featured: false,
-    title: "世界盃街頭應援登場，啦啦隊員申世熙在光化門廣場帶動氣氛",
-    shortTitle: "申世熙光化門廣場應援",
-    summary:
-      "Sports Today刊出照片新聞，記錄啦啦隊員申世熙6月12日在首爾光化門廣場，於2026北中美世界盃小組賽韓國對捷克的街頭應援活動中登台帶動氣氛。",
-    url: "http://www.stoo.com/article.php?aid=107128963930",
-    source: {
-      name: "Sports Today",
-      region: "Korea",
-      language: "ko",
-      reliability: "approved"
-    },
-    dates: {
-      published: "2026-06-12",
-      updated: "2026-06-12",
-      checked: "2026-06-12"
-    },
-    verification: {
-      level: "source-confirmed",
-      flags: ["photo-report", "korean-source", "public-cheering"],
-      notes: "Sagan verified STOO title, og:title, og:description, publication time, and og:image match the Shin Se-hee cheering photo article."
-    },
-    sourceTranslation: {
-      label: "韓文來源翻譯",
-      originalTitle: "[ST포토] 치어리더 신세희, 흥 돋구는 응원",
-      page: "translations/stoo-shin-se-hee-world-cup-cheering-2026-06-12.html",
-      translatedExcerpt:
-        "【Sports Today】照片新聞報導，啦啦隊員申世熙在首爾光化門廣場的世界盃街頭應援活動中登台表演，為韓國對捷克的小組賽現場帶動氣氛。"
-    },
-    display: {
-      image: "https://www.stoo.com/upimages/gisaimg/202606/12_1071289_63930.jpg",
-      imageAlt: "Sports Today article image for cheerleader Shin Se-hee cheering at Gwanghwamun Square",
-      imagePosition: "center 18%"
-    }
-  },
-  {
     id: "basketkorea-park-dam-bi-hyundai-mobis-2026-06-08",
     status: "published",
     section: "韓國",
