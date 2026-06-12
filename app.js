@@ -36,7 +36,8 @@ const stories = [
     },
     display: {
       image: "https://basketkorea.com/news/data/20260608/p1065617316921366_498_thum.jpg",
-      imageAlt: "BasketKorea article image for Park Dam-bi Hyundai Mobis cheerleader interview"
+      imageAlt: "BasketKorea article image for Park Dam-bi Hyundai Mobis cheerleader interview",
+      imagePosition: "center 16%"
     }
   },
   {
@@ -117,7 +118,8 @@ const stories = [
     },
     display: {
       image: "https://file.sportsseoul.com/news/cms/2026/03/26/news-p.v1.20260326.987912ae203542ed982facb9fb754808_P1.jpg",
-      imageAlt: "Sports Seoul article image for Lee Ju-eun and Fubon Angels 2026 roster report"
+      imageAlt: "Sports Seoul article image for Lee Ju-eun and Fubon Angels 2026 roster report",
+      imagePosition: "center 10%"
     }
   },
   {
@@ -150,7 +152,8 @@ const stories = [
     },
     display: {
       image: "https://media.nownews.com/nn_media/thumbnail/2026/02/1770792559538-cfff60bde8cb41f7bcbf1a6d0461b0b0-605x340.webp?unShow=false",
-      imageAlt: "NOWnews article image for Rakuten Girls Korean cheerleader lineup report"
+      imageAlt: "NOWnews article image for Rakuten Girls Korean cheerleader lineup report",
+      imagePosition: "center 18%"
     }
   },
   {
