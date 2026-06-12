@@ -126,7 +126,7 @@ const stories = [
     section: "樂天女孩",
     subtopic: "CPBL",
     priority: 4,
-    featured: true,
+    featured: false,
     title: "樂天女孩拼了！傳升級韓籍啦啦隊6本柱 規模稱霸聯盟劍指天花板",
     shortTitle: "樂天女孩傳升級韓籍6本柱",
     summary:
@@ -159,7 +159,7 @@ const stories = [
     section: "樂天女孩",
     subtopic: "CPBL",
     priority: 5,
-    featured: false,
+    featured: true,
     title: "快訊／Rakuten Girls真的要組6本柱？高佳彬現身球場：樂天我來了",
     shortTitle: "高佳彬現身桃園球場",
     summary:
