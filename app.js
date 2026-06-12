@@ -45,7 +45,7 @@ const stories = [
     section: "韓國",
     subtopic: "KBO",
     priority: 2,
-    featured: true,
+    featured: false,
     title: "台灣首位KBO啦啦隊員張珞娜亮相，MK Sports直擊LG主場應援",
     shortTitle: "張珞娜亮相LG主場",
     summary:
@@ -86,7 +86,7 @@ const stories = [
     section: "韓國",
     subtopic: "CPBL",
     priority: 3,
-    featured: false,
+    featured: true,
     title: "李珠珢2026年續留Fubon Angels，南珉貞、朴星垠等韓籍成員同列陣容",
     shortTitle: "李珠珢續留富邦天使",
     summary:
