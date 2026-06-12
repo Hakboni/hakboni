@@ -317,6 +317,104 @@ img {
     var(--cream);
 }
 
+.newsroom-post {
+  align-content: space-between;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 250, 0.92), rgba(255, 253, 250, 0.78)),
+    url("../assets/lead-stadium-cheer.png") center / cover;
+}
+
+.newsroom-post::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(200, 0, 23, 0.15), transparent 48%),
+    linear-gradient(180deg, rgba(17, 17, 17, 0.04), rgba(17, 17, 17, 0.2));
+}
+
+.newsroom-kicker {
+  margin: 0 28px 10px;
+  width: max-content;
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 8px 10px;
+  text-transform: uppercase;
+}
+
+.newsroom-headline {
+  padding: 0 28px;
+}
+
+.newsroom-headline h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(56px, 13vw, 88px);
+  line-height: 0.88;
+  letter-spacing: 0;
+}
+
+.newsroom-headline p {
+  max-width: 410px;
+  margin: 18px 0 0;
+  color: #27231f;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.42;
+}
+
+.newsroom-rules {
+  display: grid;
+  gap: 8px;
+  margin: 24px 28px 0;
+}
+
+.newsroom-rules span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  border-left: 5px solid var(--red);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.25;
+  padding: 9px 11px;
+}
+
+.newsroom-rules strong {
+  color: var(--blue);
+}
+
+.caption-panel {
+  width: min(100%, 540px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.caption-panel h2 {
+  margin: 0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.caption-panel p {
+  margin: 0;
+  color: #2c2925;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
 .caption-copy {
   padding: 0 30px;
 }
