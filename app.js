@@ -6,10 +6,10 @@ const stories = [
     subtopic: "KBL",
     priority: 1,
     featured: false,
-    title: "曾想進飯店業的朴淡備談蔚山現代Mobis應援：「啦啦隊是我的活力來源」",
-    shortTitle: "朴淡備談現代Mobis應援",
+    title: "曾夢想從事飯店業的朴淡備談蔚山現代Mobis應援：「啦啦隊是我的活力來源」",
+    shortTitle: "朴淡備談蔚山現代Mobis應援",
     summary:
-      "BasketKorea刊出朴淡備專訪，整理她加入蔚山現代Mobis啦啦隊後的應援經歷、職涯轉折，以及她對啦啦隊工作的想法。原文註明訪談於4月下旬完成，收錄於2026年5月號網路雜誌。",
+      "BasketKorea刊出朴淡備專訪，整理她加入蔚山現代Mobis啦啦隊後的應援經歷、職涯轉折，以及她對啦啦隊工作的想法。原文註明訪談於4月下旬進行，刊載於BasketKorea 2026年5月號網路雜誌。",
     url: "https://basketkorea.com/news/newsview.php?ncode=1065617316921366",
     source: {
       name: "BasketKorea",
@@ -32,7 +32,7 @@ const stories = [
       originalTitle: "[바코 인사이드] 호텔리어를 꿈꿨던 박담비 현대모비스 치어리더 “저에게 치어리딩은 활력소예요”",
       page: "translations/basketkorea-park-dam-bi-hyundai-mobis-2026-06-08.html",
       translatedExcerpt:
-        "【Bako Inside】曾夢想成為飯店人的現代Mobis啦啦隊員朴淡備表示：「對我來說，啦啦隊是活力來源。」原文說明訪談於4月下旬進行，並刊載於BasketKorea 2026年5月號網路雜誌。"
+        "【Bako Inside】曾夢想從事飯店業的蔚山現代Mobis啦啦隊員朴淡備表示：「對我來說，啦啦隊是活力來源。」原文說明訪談於4月下旬進行，並刊載於BasketKorea 2026年5月號網路雜誌。"
     },
     display: {
       image: "https://basketkorea.com/news/data/20260608/p1065617316921366_498_thum.jpg",
@@ -46,7 +46,7 @@ const stories = [
     section: "韓國",
     subtopic: "KBO",
     priority: 2,
-    featured: false,
+    featured: true,
     title: "台灣首位KBO啦啦隊員張珞娜亮相，MK Sports直擊LG主場應援",
     shortTitle: "張珞娜亮相LG主場",
     summary:
@@ -196,10 +196,10 @@ const stories = [
     subtopic: "Auditions",
     priority: 6,
     featured: false,
-    title: "樂天女孩傳升級韓籍6本柱 金世星揭徵選內幕：不想靠身分搶機會",
+    title: "樂天女孩傳升級韓籍6本柱；金世星談徵選內幕：不想靠身分搶機會",
     shortTitle: "金世星談樂天女孩徵選",
     summary:
-      "職棒新球季即將開打，樂天球團日前宣布「韓籍3本柱」完成續約，近日更傳出補強三名韓籍成員；金世星談徵選才剛開始、通過首輪初選。",
+      "樂天球團日前宣布「韓籍3本柱」完成續約，另有補強三名韓籍成員的傳聞；金世星在受訪時表示徵選才剛開始，自己通過首輪初選。",
     url: "https://www.nownews.com/news/6789096",
     source: {
       name: "NOWnews",
@@ -213,9 +213,9 @@ const stories = [
       checked: "2026-06-10"
     },
     verification: {
-      level: "source-confirmed",
+      level: "developing",
       flags: ["interview"],
-      notes: "Source includes direct audition comments."
+      notes: "Direct audition comments are sourced; broader roster expansion remains reported/developing."
     },
     display: {
       image: "https://media.nownews.com/nn_media/thumbnail/2026/02/1771909599987-dbbc25f733714e2fbee10c40aa2bb26f-453x254.webp?unShow=false",
@@ -228,11 +228,11 @@ const stories = [
     section: "富邦",
     subtopic: "CPBL",
     priority: 7,
-    featured: true,
+    featured: false,
     title: "李珠珢才剛宣布續約！好友朴星垠傳有望加入富邦 閨密連線成焦點",
     shortTitle: "朴星垠傳有望加入富邦",
     summary:
-      "台灣職棒啦啦隊市場近年掀起韓籍應援熱潮，各隊積極布局韓籍成員，李珠珢宣布續約Fubon Angels後，好友朴星垠也傳出有望加入富邦。",
+      "台灣職棒啦啦隊市場近年掀起韓籍應援熱潮；李珠珢宣布續約Fubon Angels後，NOWnews當時報導好友朴星垠也傳出有望加入富邦。後續富邦悍將已於3月4日正式宣布朴星垠加盟。",
     url: "https://www.nownews.com/news/6788942",
     source: {
       name: "NOWnews",
@@ -458,13 +458,36 @@ if (featuredCount !== 1) {
   console.error(`Expected exactly one featured story, found ${featuredCount}.`);
 }
 
-const visibleStories = validStories.filter((story) => story.status !== "archived");
-const latestStories = [...visibleStories].sort((a, b) => {
+const liveStories = validStories.filter((story) => story.status !== "archived");
+const storyDateSort = (a, b) => {
   const dateA = Date.parse(a.dates.updated || a.dates.published);
   const dateB = Date.parse(b.dates.updated || b.dates.published);
   return dateB - dateA;
-});
-const gridStories = [...visibleStories].sort((a, b) => a.priority - b.priority);
+};
+const prioritySort = (a, b) => a.priority - b.priority;
+const sourceRegion = (story) => (story.source.region || "").toLocaleLowerCase();
+const sourceBalancedStories = (candidateStories, sortFn) => {
+  const sortedStories = [...candidateStories].sort(sortFn);
+  const koreanStories = sortedStories.filter((story) => sourceRegion(story) === "korea");
+  const taiwanStories = sortedStories.filter((story) => sourceRegion(story) === "taiwan");
+  const otherStories = sortedStories.filter((story) => !["korea", "taiwan"].includes(sourceRegion(story)));
+  const balancedStories = [];
+
+  while (koreanStories.length || taiwanStories.length) {
+    balancedStories.push(...koreanStories.splice(0, 5));
+    if (taiwanStories.length) {
+      balancedStories.push(taiwanStories.shift());
+    }
+    if (!koreanStories.length && taiwanStories.length) {
+      balancedStories.push(...taiwanStories.splice(0));
+    }
+  }
+
+  return [...balancedStories, ...otherStories];
+};
+const visibleStories = sourceBalancedStories(liveStories, prioritySort);
+const latestStories = sourceBalancedStories(liveStories, storyDateSort);
+const gridStories = [...visibleStories];
 const archiveStories = [...validStories].sort((a, b) => {
   const dateA = Date.parse(a.dates.updated || a.dates.published);
   const dateB = Date.parse(b.dates.updated || b.dates.published);

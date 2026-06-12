@@ -908,7 +908,30 @@ main,
   }
 
   .ticker {
-    white-space: normal;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .ticker::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-button {
+    display: grid;
+    place-items: center;
+    gap: 3px;
+    width: 44px;
+    height: 38px;
+    padding: 8px;
+    overflow: hidden;
+    font-size: 0;
+    letter-spacing: 0;
+  }
+
+  .menu-button span {
+    width: 18px;
   }
 
   .lead-media {
